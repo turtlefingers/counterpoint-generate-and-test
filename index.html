@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iliac Suite: 대위법 시뮬레이션</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body>
+    <div id="app">
+        <header>
+            <h1>Iliac Suite: Counterpoint</h1>
+            <p class="subtitle">생성 후 테스트(Generate-and-Test) 패러다임 시뮬레이션</p>
+        </header>
+
+        <div class="main-container">
+            <div class="score-area">
+                <div class="step-info" id="step-display">마디: 1 / 성부: 1</div>
+                <div class="candidate-display" id="candidate-note">-</div>
+                <div id="score-canvas"></div>
+
+                <div class="controls">
+                    <button id="next-btn" class="primary">생성/테스트</button>
+                    <button id="auto-btn" class="secondary">자동 실행</button>
+                    <div class="control-group">
+                        <div class="speed-control">
+                            <label for="speed-select">속도:</label>
+                            <select id="speed-select">
+                                <option value="100">0.1초</option>
+                                <option value="200">0.2초</option>
+                                <option value="300">0.3초</option>
+                                <option value="500" selected>0.5초</option>
+                                <option value="700">0.7초</option>
+                                <option value="1000">1.0초</option>
+                            </select>
+                        </div>
+                        <button id="rhythm-toggle" class="secondary">리듬: OFF</button>
+                    </div>
+                    <button id="play-btn" class="secondary" title="Play All"><i data-lucide="play"></i></button>
+                    <button id="undo-btn" class="secondary" title="Undo"><i data-lucide="undo-2"></i></button>
+                    <button id="reset-btn" class="secondary" title="Reset"><i data-lucide="rotate-ccw"></i></button>
+                </div>
+            </div>
+
+            <div class="rules-area">
+                <h3>규칙 검증 상태</h3>
+                <ul class="rules-list" id="rules-list">
+                    <!-- Rules will be injected here -->
+                </ul>
+                <div id="status-message" style="margin-top: 20px; font-weight: 600;"></div>
+            </div>
+        </div>
+    </div>
+    <script type="module" src="/src/main.js"></script>
+</body>
+
+</html>

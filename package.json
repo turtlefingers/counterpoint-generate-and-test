@@ -1,0 +1,22 @@
+{
+  "name": "counter-point",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "tone": "^15.1.22",
+    "vexflow": "^5.0.0"
+  },
+  "devDependencies": {
+    "vite": "^7.3.1"
+  }
+}
