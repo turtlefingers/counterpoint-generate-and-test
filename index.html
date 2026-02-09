@@ -56,6 +56,130 @@
                 <div id="status-message" style="margin-top: 20px; font-weight: 600;"></div>
             </div>
         </div>
+
+        <section class="info-section">
+            <div class="info-card">
+                <h2>대위법과 일리악 슈트 (Iliac Suite)</h2>
+                <p>1957년 레자렌 힐러와 레너드 아이작슨이 발표한 <strong>'현악 4중주를 위한 일리악 슈트'</strong>는 역사상 최초로 컴퓨터가 작곡에 참여한 작품입니다. 이 프로그램은
+                    음악 이론의 정수인 푹스(Fux)의 대위법을 수학적 알고리즘으로 모델링하여 구현되었습니다.</p>
+
+                <div class="info-grid">
+                    <div class="info-item">
+                        <i data-lucide="dices"></i>
+                        <h3>생성 후 테스트 (Generate-and-Test)</h3>
+                        <p>컴퓨터가 난수 발생기(몬테카를로 기법)를 통해 무작위로 음표 후보를 생성한 뒤, 미리 정의된 '음악적 필터(규칙)'를 통과한 음표만을 악보에 기록하는 방식입니다.
+                        </p>
+                    </div>
+                    <div class="info-item">
+                        <i data-lucide="shield-check"></i>
+                        <h3>알고리즘적 필터링</h3>
+                        <p>작곡가는 무엇을 창조할지 결정하는 대신, 무엇이 '잘못된 것'인지 정의합니다. 무질서한 소음 속에서 규칙이라는 울타리를 통해 음악적 질서를 건져 올리는 과정입니다.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="rules-explanation">
+                <h2>일리악 슈트 알고리즘 규칙 (실험 2 기준)</h2>
+                <p class="rules-intro">아래 리스트는 일리악 슈트 실험 2에서 정의된 14가지 규칙입니다. <span class="badge-implemented"><i
+                            data-lucide="check"></i> 표시가 있는 항목</span>은 현재 이 시뮬레이션 엔진에 엄밀하게 구현되어 실시간으로 검증되고 있는 규칙들을
+                    의미합니다.</p>
+                <div class="rules-grid">
+                    <div class="rule-detail implemented">
+                        <div class="rule-header">
+                            <h4>1. 1:1 리듬 대응</h4>
+                            <i data-lucide="check"></i>
+                        </div>
+                        <p>모든 성부는 동일한 음가를 가지며 동시에 시작하고 끝남 (1종 대위법의 기초).</p>
+                    </div>
+                    <div class="rule-detail implemented">
+                        <div class="rule-header">
+                            <h4>2. 시작/종료 협화</h4>
+                            <i data-lucide="check"></i>
+                        </div>
+                        <p>시작과 끝음은 반드시 안정적인 완전 1도(Unison) 또는 8도(Octave)여야 함.</p>
+                    </div>
+                    <div class="rule-detail">
+                        <div class="rule-header">
+                            <h4>3. 종지 준비</h4>
+                        </div>
+                        <p>마지막 직전 음은 순차 진행을 통해 음악적인 종지(Cadence)를 형성해야 함.</p>
+                    </div>
+                    <div class="rule-detail implemented">
+                        <div class="rule-header">
+                            <h4>4. 허용 협화음</h4>
+                            <i data-lucide="check"></i>
+                        </div>
+                        <p>수직적 간격은 1, 3, 5, 6, 8도만 허용 (불협화음 및 중간 유니즌 배제).</p>
+                    </div>
+                    <div class="rule-detail">
+                        <div class="rule-header">
+                            <h4>5. 순차 진행 우선</h4>
+                        </div>
+                        <p>도약보다는 인접한 음으로 이동하는 순차 진행에 높은 가중치를 부여함.</p>
+                    </div>
+                    <div class="rule-detail">
+                        <div class="rule-header">
+                            <h4>6. 반대 방향 도약</h4>
+                        </div>
+                        <p>큰 도약(4도 이상) 후에는 선율의 균형을 위해 반드시 반대 방향으로 진행함.</p>
+                    </div>
+                    <div class="rule-detail implemented">
+                        <div class="rule-header">
+                            <h4>7. 금지 도약 필터</h4>
+                            <i data-lucide="check"></i>
+                        </div>
+                        <p>증4도(Tritone) 및 큰 도약(6도 이상)은 생성 과정에서 즉시 폐기함.</p>
+                    </div>
+                    <div class="rule-detail implemented">
+                        <div class="rule-header">
+                            <h4>8. 임시표 제한</h4>
+                            <i data-lucide="check"></i>
+                        </div>
+                        <p>조성적 일관성을 위해 다이어토닉 스케일(C Major) 외의 음은 사용 불가.</p>
+                    </div>
+                    <div class="rule-detail implemented">
+                        <div class="rule-header">
+                            <h4>9. 병행 5/8도 금지</h4>
+                            <i data-lucide="check"></i>
+                        </div>
+                        <p>두 성부가 같은 방향으로 움직여 연속으로 5도나 8도를 만드는 것을 금지.</p>
+                    </div>
+                    <div class="rule-detail implemented">
+                        <div class="rule-header">
+                            <h4>10. 병행 3/6도 제한</h4>
+                            <i data-lucide="check"></i>
+                        </div>
+                        <p>병행 3도나 6도는 선율의 독립성을 위해 최대 3회까지만 허용함.</p>
+                    </div>
+                    <div class="rule-detail">
+                        <div class="rule-header">
+                            <h4>11. 사선/반대 진행</h4>
+                        </div>
+                        <p>완전 협화음으로 진입할 때는 가능하면 반대 방향 진행(Contrary Motion) 유도.</p>
+                    </div>
+                    <div class="rule-detail">
+                        <div class="rule-header">
+                            <h4>12. 선율적 정점</h4>
+                        </div>
+                        <p>전체 선율에서 가장 높은 음(Climax)은 단 한 번만 나타나야 함.</p>
+                    </div>
+                    <div class="rule-detail implemented">
+                        <div class="rule-header">
+                            <h4>13. 악기 음역 준수</h4>
+                            <i data-lucide="check"></i>
+                        </div>
+                        <p>각 성부는 설정된 악기(Treble/Bass)의 물리적 연주 범위를 벗어날 수 없음.</p>
+                    </div>
+                    <div class="rule-detail">
+                        <div class="rule-header">
+                            <h4>14. 성부 교차 금지</h4>
+                        </div>
+                        <p>상위 성부가 하위 성부보다 낮은 음을 연주하는 공간적 혼란을 방지.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
     </div>
     <script type="module" src="/src/main.js"></script>
 </body>
